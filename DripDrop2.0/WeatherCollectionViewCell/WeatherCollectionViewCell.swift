@@ -15,4 +15,22 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     
+    var dailyWeather: DailyWeather?{
+        didSet{
+            updateViews()
+        }
+    }
+    
+    func updateViews(){
+        guard let dailyWeather = dailyWeather else { return }
+        summaryLabel.text = dailyWeather.summary
+        temperatureLabel.text = "\(Int(dailyWeather.avgTemperature))º"
+        let image = UIImage(named: dailyWeather.iconName)
+        iconImageView.image = image
+        
+        iconImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        iconImageView.layer.shadowRadius = 2.0
+        iconImageView.layer.shadowOpacity = 0.8
+    }
+    
 }

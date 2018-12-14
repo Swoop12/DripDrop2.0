@@ -52,4 +52,9 @@ struct DailyWeather: Codable{
         case temperatureHigh
         case temperatureLow
     }
+    
+    var avgTemperature: Double{
+        return (temperatureLow + temperatureHigh)/2
+    }
+    
 }

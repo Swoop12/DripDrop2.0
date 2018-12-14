@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        WeatherController.fetchWeatherAt(latitude: 40.760780, longitude: -111.891045) { (weatherSevice) in
+            print(weatherSevice)
+        }
+        
         return true
     }
 
